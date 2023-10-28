@@ -13,7 +13,7 @@ function Products(props) {
     <Nav/>
     <div style={styleContainer}>
       {props.produits.map((product)=>(
-        <div key={product.id} className='shadow-lg p-3 m-3 d-flex align-items-center flex-column' style={styleDiv}>
+        <div key={product.id} className='shadow-lg p-3 m-3 d-flex align-items-center flex-column rounded' style={styleDiv}>
           <h5 style={{fontSize:'13px',textAlign:'center'}}>{product.title}</h5>
           <div><img src={product.images[0]} style={styleImg} alt=''/></div>
           <button className='btn btn-primary mt-4 w-100'><Link to={`/products/detaille/${product.id}`}>Plus detailles</Link></button>
