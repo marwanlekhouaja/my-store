@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
-// import Nav from './Nav'
 import { Link } from 'react-router-dom'
 import './style/style.css'
 

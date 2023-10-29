@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import Nav from './Nav';
 import "./style/style.css";
 import 'bootstrap/dist/css/bootstrap.css';
 
