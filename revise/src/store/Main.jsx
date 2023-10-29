@@ -4,6 +4,8 @@ import Home from './Home'
 import Location from './Location'
 import Products from './Products'
 import DetailleProduct from './DetailleProduct'
+import Nav from './Nav'
+import NotFound from './NotFound'
 function Main() {
     const [products,setProducts]=useState([])
   useEffect(()=>{
@@ -15,12 +17,13 @@ function Main() {
     <>
     
     <BrowserRouter>
+        <Nav/>
         <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/location' element={<Location/>}/>
             <Route path='/products' element={<Products produits={products} />} />
             <Route path='/products/detaille/:id' element={<DetailleProduct produits={products}/>}/>
-
+            <Route path='*' element={<NotFound/>}></Route>
         </Routes>
     </BrowserRouter>
     </>
