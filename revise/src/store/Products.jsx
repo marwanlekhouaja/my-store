@@ -1,9 +1,11 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import "./style/style.css";
 import 'bootstrap/dist/css/bootstrap.css';
+import { appcontext } from './Main';
 
-function Products(props) {
+function Products() {
+  const context=useContext(appcontext)
   const styleContainer = {
     width: '100%',
     flexWrap: 'wrap',
@@ -22,12 +24,12 @@ function Products(props) {
   const refSearch = useRef();
   // une fois contenu dial produits kitbdl fa setproduits li kt afficher produits fpage ktbdl w kt afficher dakchi li kn9lbo 3lih 
   useEffect(() => {
-    setProduits(props.produits); 
-  }, [props.produits]);
+    setProduits(context.produits); 
+  }, [context.produits]);
   // function of search bar
   const search = () => {
     const searchValue = refSearch.current.value.toLowerCase();
-    let newProduits = props.produits.filter((product) =>(
+    let newProduits = context.produits.filter((product) =>(
       product.title.toLowerCase().includes(searchValue)
     )
     );

@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import './style/style.css'
+import { appcontext } from './Main'
 
-function DetailleProduct(props) {
+function DetailleProduct() {
+  const context=useContext(appcontext)
   const styleImg={width:'310px',height:'230px',borderRadius:'4px'}
   const styleImges={width:'150px',height:'150px'}
   const {id} =useParams()
@@ -18,12 +20,22 @@ function DetailleProduct(props) {
   }
   let body = document.querySelector('body').style.backgroundColor;
 
+
+  const addProduct = () => {
+    const produit = context.produits.find(t => Number(t.id) === parseInt(id))
+    console.log(produit)
+    const newProduit={...produit,count}
+    // Add the selected product directly to the cart
+    context.addItem(newProduit)
+    alert('your order add succefully in your panier')
+  }
+  
   
   return (
     <>
     {/* <Nav/> */}
     <div className="w-50 m-auto">
-    {props.produits.map((product)=>
+    {context.produits.map((product)=>
         Number(product.id) ===Number(id) &&
         <div key={product.id} className='shadow-lg p-3 m-3 d-flex align-items-center text-start flex-column '>
 
@@ -44,9 +56,10 @@ function DetailleProduct(props) {
             <button onClick={decrement}>-</button>
           </div>
           <p className='text-start fs-1'>{product.price*Number(count)} $</p>
-          <button className='btn btn-primary'> 
+          <button className='btn btn-success mt-3' onClick={addProduct}><Link to='/panier' >Ajouter au panier</Link></button>
+          {/* <button className='btn btn-primary'> 
             <Link to='/products'>Back to other products</Link>
-          </button>
+          </button> */}
         </div>
       )}
     </div>

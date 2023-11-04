@@ -53,6 +53,7 @@ function Nav() {
         {/* links of the papge */}
         <NavLink style={styleLink} to='/' >Home</NavLink>
         <NavLink style={styleLink} to='/products'>Products</NavLink>
+        <NavLink style={styleLink} to='/panier'>show your panier</NavLink>
         <NavLink style={styleLink} to='/location' >Location</NavLink>
        </div>
        {/* button dial menu li ila brkna 3la showMenu kiban les liens et icon ktwli bhal m9ss w ila show menu knt false ki3awd ykhtafiw les liens */}
